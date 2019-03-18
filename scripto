@@ -1,0 +1,20 @@
+#!/bin/bash
+if [[ ! $1 ]]; then
+    echo "Need first argument" >&2
+    exit 1
+fi
+
+#read up to first match
+while read -r; do 
+    if [[ $REPLY =~ $1 ]]; then
+        echo "$REPLY"
+        break
+    fi
+done
+
+# just print the rest of the file
+while read -r; do 
+    echo :"$REPLY"
+done
+
+exit 0;

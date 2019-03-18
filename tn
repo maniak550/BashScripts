@@ -1,0 +1,24 @@
+#!/bin/bash
+#simple note taking script
+#author me, who else silly?
+#get the date
+date=$(date)
+#get the topic
+topic="$1"
+
+# filename to write to
+filename="${HOME}/${topic}notes.txt"
+#ask user for input
+read -p "Your note: " note
+
+if [[ $note ]]; then 
+  echo "$(date): $note" >> "$filename"
+  echo "Note saved:'$note' saved to $filename"
+  
+ else
+  echo "No input; note wasnt saved" 1>&2 
+ fi
+
+ 
+
+
